@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)https://axonneq.github.io/skill-check/ -->
+<html lang="en"><script>
+    (function() {
+    class RuffleMimeType {
+        constructor(a, b, c) {
+            this.type = a, this.description = b, this.suffixes = c
+        }
+    }
+    class RuffleMimeTypeArray {
+        constructor(a) {
+            this.__mimetypes = [], this.__named_mimetypes = {};
+            for (let b of a) this.install(b)
+        }
+        install(a) {
+            let b = this.__mimetypes.length;
+            this.__mimetypes.push(a), this.__named_mimetypes[a.type] = a, this[a.type] = a, this[b] = a
+        }
+        item(a) {
+            return this.__mimetypes[a]
+        }
+        namedItem(a) {
+            return this.__named_mimetypes[a]
+        }
+        get length() {
+            return this.__mimetypes.length
+        }
+    }
+    class RufflePlugin extends RuffleMimeTypeArray {
+        constructor(a, b, c, d) {
+            super(d), this.name = a, this.description = b, this.filename = c
+        }
+        install(a) {
+            a.enabledPlugin || (a.enabledPlugin = this), super.install(a)
+        }
+    }
+    class RufflePluginArray {
+        constructor(a) {
+            this.__plugins = [], this.__named_plugins = {};
+            for (let b of a) this.install(b)
+        }
+        install(a) {
+            let b = this.__plugins.length;
+            this.__plugins.push(a), this.__named_plugins[a.name] = a, this[a.name] = a, this[b] = a
+        }
+        item(a) {
+            return this.__plugins[a]
+        }
+        namedItem(a) {
+            return this.__named_plugins[a]
+        }
+        get length() {
+            return this.__plugins.length
+        }
+    }
+    const FLASH_PLUGIN = new RufflePlugin("Shockwave Flash", "Shockwave Flash 32.0 r0", "ruffle.js", [new RuffleMimeType("application/futuresplash", "Shockwave Flash", "spl"), new RuffleMimeType("application/x-shockwave-flash", "Shockwave Flash", "swf"), new RuffleMimeType("application/x-shockwave-flash2-preview", "Shockwave Flash", "swf"), new RuffleMimeType("application/vnd.adobe.flash-movie", "Shockwave Flash", "swf")]);
+
+    function install_plugin(a) {
+        navigator.plugins.install || Object.defineProperty(navigator, "plugins", {
+            value: new RufflePluginArray(navigator.plugins),
+            writable: !1
+        }), navigator.plugins.install(a), 0 < a.length && !navigator.mimeTypes.install && Object.defineProperty(navigator, "mimeTypes", {
+            value: new RuffleMimeTypeArray(navigator.mimeTypes),
+            writable: !1
+        });
+        for (var b = 0; b < a.length; b += 1) navigator.mimeTypes.install(a[b])
+    }
+    install_plugin(FLASH_PLUGIN);
+})();
+</script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <title>DbD-Stats.net - Skill-Check Simulator</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Dead By Daylight skill check simulator">
+        <link rel="icon" type="image/x-icon" href="https://axonneq.github.io/skill-check/favicon.ico">
+        <link rel="stylesheet" href="./DbD-Stats.net - Skill-Check Simulator_files/all.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="./DbD-Stats.net - Skill-Check Simulator_files/styles.b1d39acd349e39c7da35.css"><style>html, * {-webkit-user-select:text!important; -moz-user-select:text!important;}</style><style type="text/css" abt="234"></style><style></style><style>[_nghost-ivn-c31]    {display:inline-flex;width:100%}[_nghost-ivn-c31]     .skill-check-board{padding:2em;width:100%}[_nghost-ivn-c31]     button{border:none;border-radius:3px;background-color:#555;color:#ccc;padding:.2em 1em;outline:none;font-size:14px}[_nghost-ivn-c31]     .key-preview{color:#fff;font-weight:700;font-size:14px;margin:0 auto}[_nghost-ivn-c31]     .game, [_nghost-ivn-c31]     .score{display:inline-flex;width:100%}[_nghost-ivn-c31]     .score{background-color:#151515;box-shadow:0 0 5px -1px rgba(0,0,0,.75);border-radius:5px;max-width:220px;height:-webkit-min-content;height:-moz-min-content;height:min-content;flex-direction:column;padding:1em 2em 2em}[_nghost-ivn-c31]     .score .countdown{height:200px;color:#ccc;font-size:36px!important}[_nghost-ivn-c31]     .score .button, [_nghost-ivn-c31]     .score .countdown{display:flex;justify-content:center;align-items:center}[_nghost-ivn-c31]     .score .button button{margin-top:2em}[_nghost-ivn-c31]     .score div:not(.button){display:flex;margin-bottom:.5em;font-size:13px;max-width:100%}[_nghost-ivn-c31]     .score div:not(.button) .stat-sub-label{padding-left:1em;font-size:12px}[_nghost-ivn-c31]     .score div:not(.button) .stat-label-large{font-size:16px}[_nghost-ivn-c31]     .score div:not(.button) .stat-value{color:#999;margin-left:auto}[_nghost-ivn-c31]     .score div:not(.button) .stat-value-large{font-size:16px;color:#b60024;margin-left:auto}[_nghost-ivn-c31]     .score div:not(.button) p{margin:0;color:#777}[_nghost-ivn-c31]     .score div:not(.button) .score-label{color:#fff}[_nghost-ivn-c31]     .score .header-label{color:#999!important;margin:0 0 .5em;text-align:center}[_nghost-ivn-c31]     .setup{background-color:#151515;width:80%;box-shadow:0 0 5px -1px rgba(0,0,0,.75);border-radius:5px;margin:0 auto}[_nghost-ivn-c31]     .setup .button{display:flex;justify-content:center;align-items:center}[_nghost-ivn-c31]     .setup .button button{margin-bottom:2em}[_nghost-ivn-c31]     .setup .settings-container{width:100%;padding:2em;display:flex;justify-content:space-between}[_nghost-ivn-c31]     .setup .settings-container .settings-left{width:220px}[_nghost-ivn-c31]     .setup .settings-container .settings-preview{display:flex;flex-direction:column;align-items:center}[_nghost-ivn-c31]     .setup .settings-container .settings-preview p{color:#777}[_nghost-ivn-c31]     .setup .settings-container .settings-preview #skill-check-preview{margin:1em 0;height:160px}[_nghost-ivn-c31]     .setup .settings-container .settings-right{width:220px}[_nghost-ivn-c31]     .setup .settings-container .settings-right>.score{background-color:#252525;margin-bottom:1em}[_nghost-ivn-c31]     .setup .settings-container .setting-collection{display:flex;flex-direction:column;align-items:center;margin-top:2em}[_nghost-ivn-c31]     .setup .settings-container .setting-collection>.setting{display:flex;white-space:nowrap;align-items:center}[_nghost-ivn-c31]     .setup .settings-container .setting-collection>.setting>p{padding:0;margin-left:1em}[_nghost-ivn-c31]     .setup .settings-container .setting{display:grid;grid-template-columns:3fr minmax(0,1.5fr);grid-template-rows:.1fr 1.5fr;max-width:220px;width:100%;margin-bottom:1em}[_nghost-ivn-c31]     .setup .settings-container .setting .label{grid-area:1/1/span 1/span 1;font-size:12px;color:#999;margin:0;padding-bottom:5px}[_nghost-ivn-c31]     .setup .settings-container .setting .knob{grid-area:2/1/span 1/span 1;display:flex;align-items:center}[_nghost-ivn-c31]     .setup .settings-container .setting .knob p-slider{width:100%;padding-right:1em!important}[_nghost-ivn-c31]     .setup .settings-container .setting .knob p-slider .ui-slider{background-color:#777}[_nghost-ivn-c31]     .setup .settings-container .setting .knob p-slider .ui-slider-range{background-color:#81001a}[_nghost-ivn-c31]     .setup .settings-container .setting .knob p-slider .ui-slider-handle{width:16px;height:24px;border:none;border-radius:0!important;background-color:#ccc;-webkit-clip-path:polygon(50% 0,75% 20%,50% 100%,25% 20%);clip-path:polygon(50% 0,75% 20%,50% 100%,25% 20%);top:0}[_nghost-ivn-c31]     .setup .settings-container .setting .knob p-slider .ui-slider-handle:focus, [_nghost-ivn-c31]     .setup .settings-container .setting .knob p-slider .ui-slider-handle:hover{background-color:#c50027}[_nghost-ivn-c31]     .setup .settings-container .setting .knob p-checkbox .ui-chkbox .ui-chkbox-box{border:none;box-shadow:none;background-color:#666}[_nghost-ivn-c31]     .setup .settings-container .setting .knob p-checkbox .ui-chkbox .ui-chkbox-box.ui-state-active{background-color:#81001a}[_nghost-ivn-c31]     .setup .settings-container .setting .knob p-dropdown{width:100%}[_nghost-ivn-c31]     .setup .settings-container .setting .knob p-dropdown .ui-dropdown-items-wrapper{scrollbar-color:#81001a transparent!important;border-bottom-left-radius:3px!important}[_nghost-ivn-c31]     .setup .settings-container .setting .knob p-dropdown .ui-dropdown-panel{border-radius:0 0 3px 3px}[_nghost-ivn-c31]     .setup .settings-container .setting .knob p-dropdown .ui-dropdown-open{border-bottom-left-radius:0!important;border-bottom-right-radius:0!important;border-bottom:3px solid #81001a!important}[_nghost-ivn-c31]     .setup .settings-container .setting .knob p-dropdown .ui-dropdown-item:hover{background-color:transparent;color:#ccc}[_nghost-ivn-c31]     .setup .settings-container .setting .knob p-dropdown .ui-inputtext, [_nghost-ivn-c31]     .setup .settings-container .setting .knob p-dropdown .ui-state-highlight{color:#ccc!important;font-weight:700!important}[_nghost-ivn-c31]     .setup .settings-container .setting .knob p-dropdown .ui-dropdown, [_nghost-ivn-c31]     .setup .settings-container .setting .knob p-dropdown .ui-dropdown-filter-container, [_nghost-ivn-c31]     .setup .settings-container .setting .knob p-dropdown .ui-dropdown-item, [_nghost-ivn-c31]     .setup .settings-container .setting .knob p-dropdown .ui-dropdown-panel, [_nghost-ivn-c31]     .setup .settings-container .setting .knob p-dropdown .ui-dropdown-trigger, [_nghost-ivn-c31]     .setup .settings-container .setting .knob p-dropdown .ui-inputtext{background-color:#333;border:none;box-shadow:none;color:#999}[_nghost-ivn-c31]     .setup .settings-container .setting .knob p-dropdown .ui-dropdown, [_nghost-ivn-c31]     .setup .settings-container .setting .knob p-dropdown .ui-dropdown-trigger, [_nghost-ivn-c31]     .setup .settings-container .setting .knob p-dropdown .ui-inputtext{background-color:#666!important}[_nghost-ivn-c31]     .setup .settings-container .setting .knob p-dropdown .ui-dropdown-trigger{color:#81001a}[_nghost-ivn-c31]     .setup .settings-container .setting .knob p-selectbutton .ui-selectbutton .ui-button{font-size:20px;width:3.66em;background-color:#222;color:#777;border:none;box-shadow:none;padding:.2em 0}[_nghost-ivn-c31]     .setup .settings-container .setting .knob p-selectbutton .ui-selectbutton .ui-state-active{color:#fff;background-color:#81001a;border:none}[_nghost-ivn-c31]     .setup .settings-container .setting .value{grid-area:2/2/span 1/span 1;display:flex;color:#999;justify-content:left;align-items:center;width:3.2em}[_nghost-ivn-c31]     .setup .settings-container .setting .value .decimal-input>.ui-inputnumber :focus{box-shadow:none}[_nghost-ivn-c31]     .setup .settings-container .setting .value .decimal-input>.ui-inputnumber>.ui-inputnumber-input{width:2.7em}[_nghost-ivn-c31]     .setup .settings-container .setting .value .decimal-input>.ui-inputnumber>.ui-inputnumber-button-group :hover{background-color:#81001a}[_nghost-ivn-c31]     .setup .settings-container .setting .value .decimal-input>.ui-inputnumber>.ui-inputnumber-button-group>button{width:1.5em}[_nghost-ivn-c31]     .setup .settings-container .setting .value .decimal-input>.ui-inputnumber>.ui-inputnumber-button-group>button>span{font-size:12px}[_nghost-ivn-c31]     .setup .settings-container .setting .value p-inputNumber{margin:0;font-size:13px}[_nghost-ivn-c31]     .setup .settings-container .setting .value p-inputNumber .ui-inputnumber-input{box-shadow:none;background-color:#333;color:#ccc;border:transparent;width:100%}[_nghost-ivn-c31]     .setup .settings-container .setting .value p-inputNumber .ui-inputnumber-input:focus{box-shadow:0 0 0 2px #81001a}[_nghost-ivn-c31]     .setup .settings-container .setting .value p{font-size:26px;margin-left:.2em;margin-top:.2em}[_nghost-ivn-c31]     #skill-check-canvas{display:flex;justify-content:center}[_nghost-ivn-c31]     .centered{display:flex}[_nghost-ivn-c31]     .fill{grid-area:2/1/span 1/span 2!important}[_nghost-ivn-c31]     .column{flex-direction:column;align-items:normal!important}[_nghost-ivn-c31]     .column>div{margin-bottom:.5em}[_nghost-ivn-c31]     .column>div p-radioButton{color:#ccc;font-size:12px}[_nghost-ivn-c31]     .column>div p-radioButton .ui-radiobutton-label{margin:0 0 0 1em}[_nghost-ivn-c31]     .column>div p-radioButton .ui-state-default{background-color:#666}[_nghost-ivn-c31]     .column>div p-radioButton .ui-radiobutton .ui-radiobutton-box{box-shadow:none;border:none}[_nghost-ivn-c31]     .column>div p-radioButton .ui-radiobutton .ui-radiobutton-box :hover{border:none}[_nghost-ivn-c31]     .column>div p-radioButton .ui-radiobutton .ui-state-active{background-color:#81001a!important;border:none}[_nghost-ivn-c31]     .column>div p-radioButton .ui-radiobutton .ui-state-active .ui-radiobutton-icon{background-color:#ccc}[_nghost-ivn-c31]     .column>div p-radioButton .ui-radiobutton .ui-radiobutton-icon{background-color:#999}</style><script>//console.log('a')
+</script><script>//remove baidu search ad
+var _countAA = 0
+function doBBBd(){}
+doBBBd()
+document.addEventListener('keyup', function(){_countAA-=10;doBBBd()}, false)
+document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
+
+</script><style type="text/css">
+.vue-modal-resizer {
+  display: block;
+  overflow: hidden;
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  right: 0;
+  bottom: 0;
+  z-index: 9999999;
+  background: transparent;
+  cursor: se-resize;
+}
+.vue-modal-resizer::after {
+  display: block;
+  position: absolute;
+  content: '';
+  background: transparent;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-bottom: 10px solid #ddd;
+  border-left: 10px solid transparent;
+}
+.vue-modal-resizer.clicked::after {
+  border-bottom: 10px solid #369be9;
+}
+</style><style type="text/css">
+.v--modal-block-scroll {
+  overflow: hidden;
+  width: 100vw;
+}
+.v--modal-overlay {
+  position: fixed;
+  box-sizing: border-box;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  opacity: 1;
+}
+.v--modal-overlay.scrollable {
+  height: 100%;
+  min-height: 100vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.v--modal-overlay .v--modal-background-click {
+  width: 100%;
+  min-height: 100%;
+  height: auto;
+}
+.v--modal-overlay .v--modal-box {
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.v--modal-overlay.scrollable .v--modal-box {
+  margin-bottom: 2px;
+}
+.v--modal {
+  background-color: white;
+  text-align: left;
+  border-radius: 3px;
+  box-shadow: 0 20px 60px -2px rgba(27, 33, 58, 0.4);
+  padding: 0;
+}
+.v--modal.v--modal-fullscreen {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  left: 0;
+  top: 0;
+}
+.v--modal-top-right {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.overlay-fade-enter-active,
+.overlay-fade-leave-active {
+  transition: all 0.2s;
+}
+.overlay-fade-enter,
+.overlay-fade-leave-active {
+  opacity: 0;
+}
+.nice-modal-fade-enter-active,
+.nice-modal-fade-leave-active {
+  transition: all 0.4s;
+}
+.nice-modal-fade-enter,
+.nice-modal-fade-leave-active {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+</style><style type="text/css">
+.vue-dialog div {
+  box-sizing: border-box;
+}
+.vue-dialog .dialog-flex {
+  width: 100%;
+  height: 100%;
+}
+.vue-dialog .dialog-content {
+  flex: 1 0 auto;
+  width: 100%;
+  padding: 15px;
+  font-size: 14px;
+}
+.vue-dialog .dialog-c-title {
+  font-weight: 600;
+  padding-bottom: 15px;
+}
+.vue-dialog .dialog-c-text {
+}
+.vue-dialog .vue-dialog-buttons {
+  display: flex;
+  flex: 0 1 auto;
+  width: 100%;
+  border-top: 1px solid #eee;
+}
+.vue-dialog .vue-dialog-buttons-none {
+  width: 100%;
+  padding-bottom: 15px;
+}
+.vue-dialog-button {
+  font-size: 12px !important;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  cursor: pointer;
+  box-sizing: border-box;
+  line-height: 40px;
+  height: 40px;
+  color: inherit;
+  font: inherit;
+  outline: none;
+}
+.vue-dialog-button:hover {
+  background: rgba(0, 0, 0, 0.01);
+}
+.vue-dialog-button:active {
+  background: rgba(0, 0, 0, 0.025);
+}
+.vue-dialog-button:not(:first-of-type) {
+  border-left: 1px solid #eee;
+}
+</style><style type="text/css"></style><style>
+@font-face {
+font-family: Roboto-Regular;
+src: url(assets/fonts/Roboto-Regular.ttf);
+}
+</style></head>
+    <body>
+        <app-root _nghost-ivn-c32="" ng-version="9.1.13"><app-skill-check-trainer _ngcontent-ivn-c32="" _nghost-ivn-c31="" class="ng-tns-c31-0"><div _ngcontent-ivn-c31="" class="skill-check-board ng-tns-c31-0"><div _ngcontent-ivn-c31="" class="setup ng-tns-c31-0 ng-trigger ng-trigger-fadeInOut ng-star-inserted"><div _ngcontent-ivn-c31="" class="settings-container ng-tns-c31-0"><div _ngcontent-ivn-c31="" class="settings-left ng-tns-c31-0"><div _ngcontent-ivn-c31="" class="setting ng-tns-c31-0"><p _ngcontent-ivn-c31="" class="label ng-tns-c31-0">Good SC Range</p><div _ngcontent-ivn-c31="" class="knob ng-tns-c31-0"><p-slider _ngcontent-ivn-c31="" class="ng-tns-c31-0 ng-untouched ng-pristine ng-valid"><div class="ui-slider ui-widget ui-widget-content ui-corner-all ui-slider-horizontal"><!----><!----><!----><span class="ui-slider-range ui-slider-range-min ui-widget-header ui-corner-all ng-star-inserted" style="width: 17.3913%;"></span><!----><span class="ui-slider-handle ui-state-default ui-corner-all ui-clickable ng-star-inserted" tabindex="0" aria-valuemin="10" aria-valuenow="50" aria-valuemax="240" style="left: 17.3913%;"></span><!----><!----><!----></div></p-slider></div><div _ngcontent-ivn-c31="" class="value ng-tns-c31-0"><p-inputnumber _ngcontent-ivn-c31="" class="ng-tns-c31-0 ng-untouched ng-pristine ng-valid"><span class="ui-inputnumber ui-widget ui-inputwrapper-filled"><input pinputtext="" class="ui-inputnumber-input ui-inputtext ui-corner-all ui-state-default ui-widget ui-state-filled" aria-valumin="10" aria-valuemax="240"><!----><!----><!----></span></p-inputnumber><p _ngcontent-ivn-c31="" class="ng-tns-c31-0">°</p></div></div><div _ngcontent-ivn-c31="" class="setting ng-tns-c31-0"><p _ngcontent-ivn-c31="" class="label ng-tns-c31-0">Great SC Range</p><div _ngcontent-ivn-c31="" class="knob ng-tns-c31-0"><p-slider _ngcontent-ivn-c31="" class="ng-tns-c31-0 ng-untouched ng-pristine ng-valid"><div class="ui-slider ui-widget ui-widget-content ui-corner-all ui-slider-horizontal"><!----><!----><!----><span class="ui-slider-range ui-slider-range-min ui-widget-header ui-corner-all ng-star-inserted" style="width: 0%;"></span><!----><span class="ui-slider-handle ui-state-default ui-corner-all ui-clickable ng-star-inserted" tabindex="0" aria-valuemin="10" aria-valuenow="10" aria-valuemax="50" style="left: 0%;"></span><!----><!----><!----></div></p-slider></div><div _ngcontent-ivn-c31="" class="value ng-tns-c31-0"><p-inputnumber _ngcontent-ivn-c31="" class="ng-tns-c31-0 ng-untouched ng-pristine ng-valid"><span class="ui-inputnumber ui-widget ui-inputwrapper-filled"><input pinputtext="" class="ui-inputnumber-input ui-inputtext ui-corner-all ui-state-default ui-widget ui-state-filled" aria-valumin="10" aria-valuemax="50"><!----><!----><!----></span></p-inputnumber><p _ngcontent-ivn-c31="" class="ng-tns-c31-0">°</p></div></div><div _ngcontent-ivn-c31="" class="setting ng-tns-c31-0"><p _ngcontent-ivn-c31="" class="label ng-tns-c31-0">Speed</p><div _ngcontent-ivn-c31="" class="knob ng-tns-c31-0"><p-slider _ngcontent-ivn-c31="" step="0.1" class="ng-tns-c31-0 ng-untouched ng-pristine ng-valid"><div class="ui-slider ui-widget ui-widget-content ui-corner-all ui-slider-horizontal"><!----><!----><!----><span class="ui-slider-range ui-slider-range-min ui-widget-header ui-corner-all ng-star-inserted" style="width: 33.3333%;"></span><!----><span class="ui-slider-handle ui-state-default ui-corner-all ui-clickable ng-star-inserted" tabindex="0" aria-valuemin="0.5" aria-valuenow="1" aria-valuemax="2" style="left: 33.3333%;"></span><!----><!----><!----></div></p-slider></div><div _ngcontent-ivn-c31="" class="value ng-tns-c31-0"><p-inputnumber _ngcontent-ivn-c31="" showbuttons="true" minfractiondigits="1" maxfractiondigits="1" step="0.1" class="decimal-input ng-tns-c31-0 ng-untouched ng-pristine ng-valid"><span class="ui-inputnumber ui-widget ui-inputwrapper-filled ui-inputnumber-buttons-stacked"><input pinputtext="" class="ui-inputnumber-input ui-inputtext ui-corner-all ui-state-default ui-widget ui-state-filled" aria-valumin="0.5" aria-valuemax="2"><span class="ui-inputnumber-button-group ng-star-inserted" style=""><button type="button" pbutton="" class="ui-inputnumber-button ui-inputnumber-button-up ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only"><span aria-hidden="true" class="ui-button-icon-left ui-clickable pi pi-chevron-up"></span><span aria-hidden="true" class="ui-button-text ui-clickable">ui-btn</span></button><button type="button" pbutton="" class="ui-inputnumber-button ui-inputnumber-button-down ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only"><span aria-hidden="true" class="ui-button-icon-left ui-clickable pi pi-chevron-down"></span><span aria-hidden="true" class="ui-button-text ui-clickable">ui-btn</span></button></span><!----><!----><!----></span></p-inputnumber></div></div><div _ngcontent-ivn-c31="" class="setting-collection ng-tns-c31-0"><div _ngcontent-ivn-c31="" class="setting ng-tns-c31-0"><div _ngcontent-ivn-c31="" class="knob centered ng-tns-c31-0"><p-checkbox _ngcontent-ivn-c31="" class="ng-tns-c31-0 ng-untouched ng-pristine ng-valid"><div class="ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input type="checkbox" value="undefined"></div><div role="checkbox" class="ui-chkbox-box ui-widget ui-corner-all ui-state-default" aria-checked="false"><span class="ui-chkbox-icon ui-clickable"></span></div></div><!----></p-checkbox></div><p _ngcontent-ivn-c31="" class="label centered ng-tns-c31-0">Invert</p></div><div _ngcontent-ivn-c31="" class="setting ng-tns-c31-0"><div _ngcontent-ivn-c31="" class="knob centered ng-tns-c31-0"><p-checkbox _ngcontent-ivn-c31="" class="ng-tns-c31-0 ng-untouched ng-pristine ng-valid"><div class="ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input type="checkbox" value="undefined"></div><div role="checkbox" class="ui-chkbox-box ui-widget ui-corner-all ui-state-default ui-state-active" aria-checked="true"><span class="ui-chkbox-icon ui-clickable pi pi-check"></span></div></div><!----></p-checkbox></div><p _ngcontent-ivn-c31="" class="label centered ng-tns-c31-0">Center Position</p></div><div _ngcontent-ivn-c31="" class="setting ng-tns-c31-0"><div _ngcontent-ivn-c31="" class="knob centered ng-tns-c31-0"><p-checkbox _ngcontent-ivn-c31="" class="ng-tns-c31-0 ng-untouched ng-pristine ng-valid"><div class="ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input type="checkbox" value="undefined"></div><div role="checkbox" class="ui-chkbox-box ui-widget ui-corner-all ui-state-default" aria-checked="false"><span class="ui-chkbox-icon ui-clickable"></span></div></div><!----></p-checkbox></div><p _ngcontent-ivn-c31="" class="label centered ng-tns-c31-0">Mute Warning</p></div></div></div><div _ngcontent-ivn-c31="" class="settings-preview ng-tns-c31-0"><p _ngcontent-ivn-c31="" class="ng-tns-c31-0">Preview</p><div _ngcontent-ivn-c31="" id="skill-check-preview" class="ng-tns-c31-0"><canvas id="defaultCanvas0" class="p5Canvas" width="160" height="160" style="width: 160px; height: 160px;"></canvas></div><div _ngcontent-ivn-c31="" class="button ng-tns-c31-0"><button _ngcontent-ivn-c31="" class="ng-tns-c31-0">Start</button></div></div><div _ngcontent-ivn-c31="" class="settings-right ng-tns-c31-0"><div _ngcontent-ivn-c31="" class="score ng-tns-c31-0 ng-trigger ng-trigger-fadeInOut"><p _ngcontent-ivn-c31="" class="header-label ng-tns-c31-0">Last Run</p><div _ngcontent-ivn-c31="" class="dbd-faded-rule-crimson ng-tns-c31-0"></div><div _ngcontent-ivn-c31="" class="statRow ng-tns-c31-0"><p _ngcontent-ivn-c31="" class="stat-label ng-tns-c31-0">Total: </p><p _ngcontent-ivn-c31="" class="stat-value ng-tns-c31-0">0</p></div><div _ngcontent-ivn-c31="" class="statRow ng-tns-c31-0"><p _ngcontent-ivn-c31="" class="stat-label ng-tns-c31-0">Hits: </p><p _ngcontent-ivn-c31="" class="stat-value ng-tns-c31-0">0</p></div><div _ngcontent-ivn-c31="" class="statRow ng-tns-c31-0"><p _ngcontent-ivn-c31="" class="stat-sub-label ng-tns-c31-0"><i _ngcontent-ivn-c31="" class="fas fa-angle-right ng-tns-c31-0"></i><font _mstmutation="1"> Good: </font></p><p _ngcontent-ivn-c31="" class="stat-value ng-tns-c31-0">0</p></div><div _ngcontent-ivn-c31="" class="statRow ng-tns-c31-0"><p _ngcontent-ivn-c31="" class="stat-sub-label ng-tns-c31-0"><i _ngcontent-ivn-c31="" class="fas fa-angle-right ng-tns-c31-0"></i><font _mstmutation="1"> Great: </font></p><p _ngcontent-ivn-c31="" class="stat-value ng-tns-c31-0">0</p></div><div _ngcontent-ivn-c31="" class="statRow ng-tns-c31-0"><p _ngcontent-ivn-c31="" class="stat-label ng-tns-c31-0">Misses: </p><p _ngcontent-ivn-c31="" class="stat-value ng-tns-c31-0">0</p></div><p _ngcontent-ivn-c31="" class="ng-tns-c31-0"></p><div _ngcontent-ivn-c31="" class="statRow ng-tns-c31-0"><p _ngcontent-ivn-c31="" class="stat-label-large score-label ng-tns-c31-0">Score: </p><p _ngcontent-ivn-c31="" class="stat-value-large ng-tns-c31-0">0</p></div><div _ngcontent-ivn-c31="" class="statRow ng-tns-c31-0"><p _ngcontent-ivn-c31="" class="stat-label ng-tns-c31-0">Accuracy: </p><p _ngcontent-ivn-c31="" class="stat-value ng-tns-c31-0">0.0 %</p></div><div _ngcontent-ivn-c31="" class="statRow ng-tns-c31-0"><p _ngcontent-ivn-c31="" class="stat-label ng-tns-c31-0">Best Streak: </p><p _ngcontent-ivn-c31="" class="stat-value ng-tns-c31-0">0</p></div></div><div _ngcontent-ivn-c31="" class="input-selection ng-tns-c31-0"><div _ngcontent-ivn-c31="" class="setting ng-tns-c31-0"><p _ngcontent-ivn-c31="" class="label ng-tns-c31-0">Input</p><div _ngcontent-ivn-c31="" class="knob fill ng-tns-c31-0"><p-selectbutton _ngcontent-ivn-c31="" optiondisabled="disabled" class="ng-tns-c31-0 ng-valid ng-touched ng-dirty"><div role="group" class="ui-selectbutton ui-buttonset ui-widget ui-corner-all ui-buttonset-3"><div role="button" class="ui-button ui-widget ui-state-default ui-button-text-only ng-star-inserted ui-button-text-icon-left ui-button-icon-only" aria-pressed="false" tabindex="0" style=""><i _ngcontent-ivn-c31="" class="ng-tns-c31-0 fa-keyboard fas ng-star-inserted"></i><!----><!----><!----><!----><!----></div><div role="button" class="ui-button ui-widget ui-state-default ui-button-text-only ng-star-inserted ui-state-active ui-state-focus ui-button-text-icon-left ui-button-icon-only" aria-pressed="true" tabindex="0" style=""><i _ngcontent-ivn-c31="" class="ng-tns-c31-0 fa-mouse fas ng-star-inserted"></i><!----><!----><!----><!----><!----></div><div role="button" class="ui-button ui-widget ui-state-default ui-button-text-only ui-state-disabled ui-button-text-icon-left ui-button-icon-only ng-star-inserted" aria-pressed="false" tabindex="0" style=""><i _ngcontent-ivn-c31="" ptooltip="Coming Soon" tooltipposition="bottom" class="ng-tns-c31-0 fa-gamepad fas ng-star-inserted"></i><!----><!----><!----><!----><!----></div><!----></div></p-selectbutton></div></div><div _ngcontent-ivn-c31="" class="ng-tns-c31-0"><!----><div _ngcontent-ivn-c31="" class="setting ng-tns-c31-0 ng-star-inserted" style=""><p _ngcontent-ivn-c31="" class="label ng-tns-c31-0">Preferred Mouse Button</p><div _ngcontent-ivn-c31="" class="knob fill column ng-tns-c31-0"><div _ngcontent-ivn-c31="" class="ng-tns-c31-0"><p-radiobutton _ngcontent-ivn-c31="" value="0" label="(M1) Left" class="ng-tns-c31-0 ng-untouched ng-pristine ng-valid"><div class="ui-radiobutton ui-widget"><div class="ui-helper-hidden-accessible"><input type="radio" value="0"></div><div role="radio" aria-checked="true" class="ui-radiobutton-box ui-widget ui-state-default ui-state-active"><span class="ui-radiobutton-icon ui-clickable pi pi-circle-on"></span></div></div><label class="ng-star-inserted ui-radiobutton-label ui-label-active">(M1) Left</label><!----></p-radiobutton></div><div _ngcontent-ivn-c31="" class="ng-tns-c31-0"><p-radiobutton _ngcontent-ivn-c31="" value="2" label="(M2) Right" class="ng-tns-c31-0 ng-untouched ng-pristine ng-valid"><div class="ui-radiobutton ui-widget"><div class="ui-helper-hidden-accessible"><input type="radio" value="2"></div><div role="radio" aria-checked="false" class="ui-radiobutton-box ui-widget ui-state-default"><span class="ui-radiobutton-icon ui-clickable"></span></div></div><label class="ui-radiobutton-label ng-star-inserted">(M2) Right</label><!----></p-radiobutton></div><div _ngcontent-ivn-c31="" class="ng-tns-c31-0"><p-radiobutton _ngcontent-ivn-c31="" value="1" label="(M3) Middle" class="ng-tns-c31-0 ng-untouched ng-pristine ng-valid"><div class="ui-radiobutton ui-widget"><div class="ui-helper-hidden-accessible"><input type="radio" value="1"></div><div role="radio" aria-checked="false" class="ui-radiobutton-box ui-widget ui-state-default"><span class="ui-radiobutton-icon ui-clickable"></span></div></div><label class="ui-radiobutton-label ng-star-inserted">(M3) Middle</label><!----></p-radiobutton></div></div></div><!----><div _ngcontent-ivn-c31="" class="setting ng-tns-c31-0 ng-star-inserted" style=""><p _ngcontent-ivn-c31="" class="label ng-tns-c31-0">Experimental Buttons <i _ngcontent-ivn-c31="" ptooltip="Might not work in some browsers" class="fas fa-info-circle ng-tns-c31-0"></i></p><div _ngcontent-ivn-c31="" class="knob fill column ng-tns-c31-0"><div _ngcontent-ivn-c31="" class="ng-tns-c31-0"><p-radiobutton _ngcontent-ivn-c31="" value="3" label="(M4) Back" class="ng-tns-c31-0 ng-untouched ng-pristine ng-valid"><div class="ui-radiobutton ui-widget"><div class="ui-helper-hidden-accessible"><input type="radio" value="3"></div><div role="radio" aria-checked="false" class="ui-radiobutton-box ui-widget ui-state-default"><span class="ui-radiobutton-icon ui-clickable"></span></div></div><label class="ui-radiobutton-label ng-star-inserted">(M4) Back</label><!----></p-radiobutton></div><div _ngcontent-ivn-c31="" class="ng-tns-c31-0"><p-radiobutton _ngcontent-ivn-c31="" value="4" label="(M5) Forward" class="ng-tns-c31-0 ng-untouched ng-pristine ng-valid"><div class="ui-radiobutton ui-widget"><div class="ui-helper-hidden-accessible"><input type="radio" value="4"></div><div role="radio" aria-checked="false" class="ui-radiobutton-box ui-widget ui-state-default"><span class="ui-radiobutton-icon ui-clickable"></span></div></div><label class="ui-radiobutton-label ng-star-inserted">(M5) Forward</label><!----></p-radiobutton></div></div></div><!----><!----></div></div></div></div></div><!----><!----></div></app-skill-check-trainer></app-root>
+    <script src="./DbD-Stats.net - Skill-Check Simulator_files/runtime-es2015.0dae8cbc97194c7caed4.js.下载" type="module"></script><script src="./DbD-Stats.net - Skill-Check Simulator_files/runtime-es5.0dae8cbc97194c7caed4.js.下载" nomodule="" defer=""></script><script src="./DbD-Stats.net - Skill-Check Simulator_files/polyfills-es5.28f12a96904b8f2b6d42.js.下载" nomodule="" defer=""></script><script src="./DbD-Stats.net - Skill-Check Simulator_files/polyfills-es2015.7f2be5c3211715ed096a.js.下载" type="module"></script><script src="./DbD-Stats.net - Skill-Check Simulator_files/main-es2015.3082448332b9948431e8.js.下载" type="module"></script><script src="./DbD-Stats.net - Skill-Check Simulator_files/main-es5.3082448332b9948431e8.js.下载" nomodule="" defer=""></script>
+
+<iframe scrolling="no" frameborder="0" allowtransparency="true" src="./DbD-Stats.net - Skill-Check Simulator_files/widget_iframe.2d7d9a6d04538bf11c7b23641e75738c.html" title="Twitter settings iframe" style="display: none;"></iframe><div data-flash-app-container="true" id="flash_player_app_root"></div><main></main></body></html>
